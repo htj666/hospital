@@ -1,6 +1,6 @@
 *.class
 /out/
 /target/
-.idea/
+/.idea/
 *.iml
 README.md
