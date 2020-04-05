@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -24,7 +25,7 @@ public class Pane0 extends Application {
         anchorPane0.setVisible(true);
     }
 
-    public void load(AnchorPane anchorPane0, Button button1, Button button2, Button button3, Button button4, Button button5, AnchorPane anchorPane1, AnchorPane top, Button exit) {
+    public void load(AnchorPane anchorPane0, Button button1, Button button2, Button button3, Button button4, Button button5, AnchorPane anchorPane1, Button exit) {
 
         Font font = Font.font("YouYuan", FontWeight.BLACK, 27);
 
@@ -33,7 +34,7 @@ public class Pane0 extends Application {
         login.setTextFill(Color.rgb(217, 217, 217));
         login.setFont(font);
         login.setPrefSize(190, 70);
-        login.setOnAction(new EventHandler<ActionEvent>() {  // 入院出院登记
+        login.setOnAction(new EventHandler<ActionEvent>() {  // 登录
             @Override
             public void handle(ActionEvent event) {
                 button1.setDisable(false);
@@ -47,11 +48,25 @@ public class Pane0 extends Application {
             }
         });
 
-        Image image = new Image("img/img7.png", 1300, 1400, true, false, true);
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefSize(380, 250);
+        anchorPane.setStyle("-fx-background-color: #F4FEE5");
+        anchorPane.setOpacity(0);
+
+        TextField textField = new TextField();
+        textField.setPrefWidth(350);
+        textField.setPrefHeight(50);
+        textField.setOpacity(0.2);
+
+        Image image = new Image("img/img2.png", 1300, 1400, true, false, true);
         ImageView imageView = new ImageView(image);
-        anchorPane0.getChildren().addAll(imageView, login);
+        anchorPane0.getChildren().addAll(imageView, login, anchorPane, textField);
         AnchorPane.setLeftAnchor(login, 450.0);
         AnchorPane.setTopAnchor(login, 600.0);
+        AnchorPane.setLeftAnchor(textField, 400.0);
+        AnchorPane.setTopAnchor(textField, 400.0);
+        AnchorPane.setLeftAnchor(anchorPane, 380.0);
+        AnchorPane.setTopAnchor(anchorPane, 270.0);
 //        TextField textField = new TextField();
 //        BackgroundFill backgroundFill = new BackgroundFill(Paint.valueOf("#102b6a"), new CornerRadii(1), new Insets(1));
 //        Background background = new Background(backgroundFill);
