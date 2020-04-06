@@ -29,50 +29,58 @@ public class Pane0 extends Application {
 
         Font font = Font.font("YouYuan", FontWeight.BLACK, 27);
 
+        Image image = new Image("img/img1.png", 1300, 1400, true, false, true);
+        ImageView imageView = new ImageView(image);
+
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefSize(450, 420);
+        anchorPane.setStyle("-fx-background-color: #F4FEE5");
+        anchorPane.setOpacity(0.08);
+
+        TextField username = new TextField();
+        username.setPrefWidth(350);
+        username.setPrefHeight(50);
+        username.setOpacity(0.3);
+        username.setPromptText("请输入用户名");
+
+        TextField password = new TextField();
+        password.setPrefWidth(350);
+        password.setPrefHeight(50);
+        password.setOpacity(0.3);
+        password.setPromptText("请输入密码");
+
         Button login = new Button("登录");
         login.setStyle("-fx-background-color: #304152");//   #143352
         login.setTextFill(Color.rgb(217, 217, 217));
         login.setFont(font);
-        login.setPrefSize(190, 70);
+        login.setPrefSize(190, 60);
         login.setOnAction(new EventHandler<ActionEvent>() {  // 登录
             @Override
             public void handle(ActionEvent event) {
-                button1.setDisable(false);
-                button2.setDisable(false);
-                button3.setDisable(false);
-                button4.setDisable(false);
-                button5.setDisable(false);
-                anchorPane0.setVisible(false);
-                anchorPane1.setVisible(true);
-                exit.setVisible(true);
+                if (username.getText().equals("1") && password.getText().equals("1")) {
+                    username.setText("");
+                    password.setText("");
+                    button1.setDisable(false);
+                    button2.setDisable(false);
+                    button3.setDisable(false);
+                    button4.setDisable(false);
+                    button5.setDisable(false);
+                    anchorPane0.setVisible(false);
+                    anchorPane1.setVisible(true);
+                    exit.setVisible(true);
+                }
             }
         });
 
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane.setPrefSize(380, 250);
-        anchorPane.setStyle("-fx-background-color: #F4FEE5");
-        anchorPane.setOpacity(0);
-
-        TextField textField = new TextField();
-        textField.setPrefWidth(350);
-        textField.setPrefHeight(50);
-        textField.setOpacity(0.2);
-
-        Image image = new Image("img/img2.png", 1300, 1400, true, false, true);
-        ImageView imageView = new ImageView(image);
-        anchorPane0.getChildren().addAll(imageView, login, anchorPane, textField);
-        AnchorPane.setLeftAnchor(login, 450.0);
-        AnchorPane.setTopAnchor(login, 600.0);
-        AnchorPane.setLeftAnchor(textField, 400.0);
-        AnchorPane.setTopAnchor(textField, 400.0);
-        AnchorPane.setLeftAnchor(anchorPane, 380.0);
-        AnchorPane.setTopAnchor(anchorPane, 270.0);
-//        TextField textField = new TextField();
-//        BackgroundFill backgroundFill = new BackgroundFill(Paint.valueOf("#102b6a"), new CornerRadii(1), new Insets(1));
-//        Background background = new Background(backgroundFill);
-//        textField.setBackground(background);
-//        AnchorPane.setLeftAnchor(textField, 600.0);
-//        AnchorPane.setTopAnchor(textField, 600.0);
+        anchorPane0.getChildren().addAll(imageView, anchorPane, username, password, login);
+        AnchorPane.setLeftAnchor(anchorPane, 330.0);
+        AnchorPane.setTopAnchor(anchorPane, 200.0);
+        AnchorPane.setLeftAnchor(username, 380.0);
+        AnchorPane.setTopAnchor(username, 280.0);
+        AnchorPane.setLeftAnchor(password, 380.0);
+        AnchorPane.setTopAnchor(password, 390.0);
+        AnchorPane.setLeftAnchor(login, 455.0);
+        AnchorPane.setTopAnchor(login, 500.0);
     }
 
     @Override
